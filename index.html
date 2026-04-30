@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- ✅ IMPORTANT FOR MOBILE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Naam Japa Counter</title>
@@ -19,10 +17,9 @@ body {
 
 /* ✅ RESPONSIVE CONTAINER */
 .container {
-  max-width: 420px;
   width: 100%;
+  max-width: 420px;
   margin: auto;
-  padding: 10px;
 }
 
 /* Header */
@@ -30,8 +27,12 @@ body {
   background: linear-gradient(135deg, #7b2ff7, #4a00e0);
   color: white;
   padding: 25px 15px;
-  border-radius: 20px 20px 0 0;
+  border-radius: 24px 24px 0 0;
   text-align: center;
+}
+
+.header h2 {
+  margin: 0;
 }
 
 .timer {
@@ -43,7 +44,7 @@ body {
 .card {
   background: white;
   padding: 20px 15px;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 24px 24px;
 }
 
 /* Layout */
@@ -51,18 +52,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4vw; /* responsive spacing */
-  margin: 20px 0;
+  gap: 5vw;
+  margin: 25px 0;
 }
 
-/* ✅ RESPONSIVE BOX FIX */
+/* ✅ SQUARE RESPONSIVE BOXES */
 .box {
   width: 22vw;
   height: 22vw;
-  max-width: 90px;
-  max-height: 90px;
+  max-width: 95px;
+  max-height: 95px;
 
-  border-radius: 16px;
+  border-radius: 18px;
 
   display: flex;
   flex-direction: column;
@@ -70,32 +71,26 @@ body {
   align-items: center;
 
   background: linear-gradient(145deg, #f3f0ff, #e7e2ff);
-
-  box-shadow: 
-    0 6px 15px rgba(0,0,0,0.06),
-    inset 0 1px 4px rgba(255,255,255,0.7);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.06);
 }
 
-/* Label */
 .box div {
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 11px;
   color: #8375a8;
   letter-spacing: 1px;
 }
 
-/* Number */
 .box h3 {
-  margin: 4px 0 0;
+  margin-top: 4px;
   font-size: 18px;
   color: #6a11cb;
 }
 
-/* ✅ RESPONSIVE CIRCLE */
+/* Circle */
 .circle-container {
   position: relative;
-  width: 35vw;
-  height: 35vw;
+  width: 36vw;
+  height: 36vw;
   max-width: 150px;
   max-height: 150px;
 }
@@ -129,7 +124,7 @@ svg {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 8vw;
-  max-font-size: 40px;
+  max-font-size: 42px;
   color: #6a11cb;
   font-weight: 600;
 }
@@ -137,8 +132,8 @@ svg {
 /* Mantra */
 .mantra {
   text-align: center;
-  margin: 15px 5px;
-  line-height: 1.8;
+  margin: 20px 10px;
+  line-height: 1.9;
   font-size: 4vw;
   max-font-size: 15px;
 }
@@ -148,7 +143,7 @@ button {
   width: 100%;
   padding: 16px;
   border: none;
-  border-radius: 16px;
+  border-radius: 18px;
   background: linear-gradient(135deg, #7b2ff7, #4a00e0);
   color: white;
   font-size: 16px;
@@ -163,8 +158,8 @@ button {
 
 /* Footer */
 .footer {
-  margin-top: 15px;
   text-align: center;
+  margin-top: 15px;
 }
 
 .footer p {
@@ -172,16 +167,19 @@ button {
   color: #888;
 }
 
-/* 🔥 EXTRA SMALL PHONES */
-@media (max-width: 350px) {
-  .box {
-    width: 26vw;
-    height: 26vw;
+/* 🔥 MOBILE FULL WIDTH FIX */
+@media (max-width: 500px) {
+
+  .container {
+    max-width: 100%;
   }
 
-  .circle-container {
-    width: 40vw;
-    height: 40vw;
+  .header {
+    border-radius: 0;
+  }
+
+  .card {
+    border-radius: 0;
   }
 }
 </style>
