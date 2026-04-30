@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Naam Japa Counter</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f3ff, #ece9ff);
+  display: flex;
+  justify-content: center;
+}
+
+/* Container */
+.container {
+  width: 360px;
+  margin-top: 20px;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #7b2ff7, #4a00e0);
+  color: white;
+  padding: 28px 20px;
+  border-radius: 24px 24px 0 0;
+  text-align: center;
+}
+
+.timer {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 0 0 24px 24px;
+}
+
+/* Layout */
+.main-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  margin: 25px 0;
+}
+
+/* 🔥 PERFECT SQUARE FIX */
+.box {
+  width: 200px;
+  height: 80px;
+  border-radius: 20px;
+padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(145deg, #f3f0ff, #e7e2ff);
+
+  box-shadow: 
+    0 8px 20px rgba(0,0,0,0.06),
+    inset 0 1px 4px rgba(255,255,255,0.7);
+}
+
+/* Label */
+.box div {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8375a8;
+  letter-spacing: 1px;
+}
+
+/* Number */
+.box h3 {
+  margin: 6px 0 0;
+  font-size: 22px;
+  color: #6a11cb;
+  font-weight: 600;
+}
+
+/* Circle */
+.circle-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+svg {
+  transform: rotate(-90deg);
+}
+
+.bg-ring {
+  fill: none;
+  stroke: #e4e1f7;
+  stroke-width: 8;
+}
+
+.progress-ring {
+  fill: none;
+  stroke: #7b2ff7;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 377;
+  stroke-dashoffset: 377;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Count */
+.count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 42px;
+  color: #6a11cb;
+  font-weight: 600;
+}
+
+/* Mantra */
+.mantra {
+  text-align: center;
+  margin: 20px 10px;
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #7b2ff7, #4a00e0);
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Reset */
+.reset {
+  background: none;
+  color: red;
+  margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 12px;
+  color: #888;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h2>Naam Jaap Counter</h2>
+    <div class="timer" id="timer">00:00:00</div>
+  </div>
+
+  <div class="card">
+
+    <div class="main-row">
+
+      <div class="box">
+        <div>MALAS</div>
+        <h3 id="malas">0</h3>
+      </div>
+
+      <div class="circle-container">
+        <svg width="150" height="150">
+          <circle class="bg-ring" cx="75" cy="75" r="60"></circle>
+          <circle class="progress-ring" id="progress" cx="75" cy="75" r="60"></circle>
+        </svg>
+        <div class="count" id="count">0</div>
+      </div>
+
+      <div class="box">
+        <div>TOTAL</div>
+        <h3 id="total">0</h3>
+      </div>
+
+    </div>
+
+    <div class="mantra">
+      <p><strong>ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ</strong><br> ਨਿਰਭਉ ਨਿਰਵੈਰੁ
+      <br> ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ ॥</p>
+      <p><strong>ਜਪੁ ॥</strong></p>
+      <p>ਆਦਿ ਸਚੁ ਜੁਗਾਦਿ ਸਚੁ ॥
+      <br>ਹੈ ਭੀ ਸਚੁ ਨਾਨਕ ਹੋਸੀ ਭੀ ਸਚੁ ॥</p>
+    </div>
+
+    <button onclick="tap()">🙏 TAP TO JAP</button>
+    <button class="reset" onclick="reset()">RESET</button>
+
+    <div class="footer">
+      <p>Crafted with ❤️ by Divpreet Kaur</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let count = 0, malas = 0, seconds = 0, started = false, timer;
+const radius = 60;
+const circumference = 2 * Math.PI * radius;
+
+function tap() {
+  if (!started) {
+    startTimer();
+    started = true;
+  }
+
+  count++;
+  if (count === 108) {
+    malas++;
+    count = 0;
+  }
+
+  update();
+}
+
+function update() {
+  document.getElementById("count").innerText = count;
+  document.getElementById("malas").innerText = malas;
+  document.getElementById("total").innerText = malas * 108 + count;
+
+  let offset = circumference - (count / 108) * circumference;
+  document.getElementById("progress").style.strokeDashoffset = offset;
+}
+
+function startTimer() {
+  timer = setInterval(() => {
+    seconds++;
+    let h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+    let m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+    let s = String(seconds % 60).padStart(2, '0');
+    document.getElementById("timer").innerText = `${h}:${m}:${s}`;
+  }, 1000);
+}
+
+function reset() {
+  count = 0;
+  malas = 0;
+  seconds = 0;
+  started = false;
+
+  clearInterval(timer);
+  document.getElementById("timer").innerText = "00:00:00";
+  document.getElementById("progress").style.strokeDashoffset = circumference;
+
+  update();
+}
+</script>
+
+</body>
+</html>
