@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- ✅ IMPORTANT FOR MOBILE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Naam Japa Counter</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -11,22 +15,22 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #f5f3ff, #ece9ff);
-  display: flex;
-  justify-content: center;
 }
 
-/* Container */
+/* ✅ RESPONSIVE CONTAINER */
 .container {
-  width: 360px;
-  margin-top: 20px;
+  max-width: 420px;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
 }
 
 /* Header */
 .header {
   background: linear-gradient(135deg, #7b2ff7, #4a00e0);
   color: white;
-  padding: 28px 20px;
-  border-radius: 24px 24px 0 0;
+  padding: 25px 15px;
+  border-radius: 20px 20px 0 0;
   text-align: center;
 }
 
@@ -38,8 +42,8 @@ body {
 /* Card */
 .card {
   background: white;
-  padding: 25px 20px;
-  border-radius: 0 0 24px 24px;
+  padding: 20px 15px;
+  border-radius: 0 0 20px 20px;
 }
 
 /* Layout */
@@ -47,16 +51,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 35px;
-  margin: 25px 0;
+  gap: 4vw; /* responsive spacing */
+  margin: 20px 0;
 }
 
-/* 🔥 PERFECT SQUARE FIX */
+/* ✅ RESPONSIVE BOX FIX */
 .box {
-  width: 200px;
-  height: 80px;
-  border-radius: 20px;
-padding: 10px;
+  width: 22vw;
+  height: 22vw;
+  max-width: 90px;
+  max-height: 90px;
+
+  border-radius: 16px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -65,13 +72,13 @@ padding: 10px;
   background: linear-gradient(145deg, #f3f0ff, #e7e2ff);
 
   box-shadow: 
-    0 8px 20px rgba(0,0,0,0.06),
+    0 6px 15px rgba(0,0,0,0.06),
     inset 0 1px 4px rgba(255,255,255,0.7);
 }
 
 /* Label */
 .box div {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   color: #8375a8;
   letter-spacing: 1px;
@@ -79,37 +86,40 @@ padding: 10px;
 
 /* Number */
 .box h3 {
-  margin: 6px 0 0;
-  font-size: 22px;
+  margin: 4px 0 0;
+  font-size: 18px;
   color: #6a11cb;
-  font-weight: 600;
 }
 
-/* Circle */
+/* ✅ RESPONSIVE CIRCLE */
 .circle-container {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 35vw;
+  height: 35vw;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 svg {
+  width: 100%;
+  height: 100%;
   transform: rotate(-90deg);
 }
 
 .bg-ring {
   fill: none;
   stroke: #e4e1f7;
-  stroke-width: 8;
+  stroke-width: 6;
 }
 
 .progress-ring {
   fill: none;
   stroke: #7b2ff7;
-  stroke-width: 8;
+  stroke-width: 6;
   stroke-linecap: round;
   stroke-dasharray: 377;
   stroke-dashoffset: 377;
-  transition: stroke-dashoffset 0.3s ease;
+  transition: 0.3s;
 }
 
 /* Count */
@@ -118,7 +128,8 @@ svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 42px;
+  font-size: 8vw;
+  max-font-size: 40px;
   color: #6a11cb;
   font-weight: 600;
 }
@@ -126,25 +137,21 @@ svg {
 /* Mantra */
 .mantra {
   text-align: center;
-  margin: 20px 10px;
-  line-height: 1.9;
-  font-size: 15px;
+  margin: 15px 5px;
+  line-height: 1.8;
+  font-size: 4vw;
+  max-font-size: 15px;
 }
 
 /* Button */
 button {
   width: 100%;
-  padding: 18px;
+  padding: 16px;
   border: none;
-  border-radius: 20px;
+  border-radius: 16px;
   background: linear-gradient(135deg, #7b2ff7, #4a00e0);
   color: white;
-  font-size: 17px;
-  cursor: pointer;
-}
-
-button:active {
-  transform: scale(0.97);
+  font-size: 16px;
 }
 
 /* Reset */
@@ -156,13 +163,26 @@ button:active {
 
 /* Footer */
 .footer {
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
 }
 
 .footer p {
   font-size: 12px;
   color: #888;
+}
+
+/* 🔥 EXTRA SMALL PHONES */
+@media (max-width: 350px) {
+  .box {
+    width: 26vw;
+    height: 26vw;
+  }
+
+  .circle-container {
+    width: 40vw;
+    height: 40vw;
+  }
 }
 </style>
 </head>
@@ -186,7 +206,7 @@ button:active {
       </div>
 
       <div class="circle-container">
-        <svg width="150" height="150">
+        <svg viewBox="0 0 150 150">
           <circle class="bg-ring" cx="75" cy="75" r="60"></circle>
           <circle class="progress-ring" id="progress" cx="75" cy="75" r="60"></circle>
         </svg>
@@ -204,8 +224,8 @@ button:active {
       <p><strong>ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ</strong><br> ਨਿਰਭਉ ਨਿਰਵੈਰੁ
       <br> ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ ॥</p>
       <p><strong>ਜਪੁ ॥</strong></p>
-      <p>ਆਦਿ ਸਚੁ ਜੁਗਾਦਿ ਸਚੁ ॥
-      <br>ਹੈ ਭੀ ਸਚੁ ਨਾਨਕ ਹੋਸੀ ਭੀ ਸਚੁ ॥</p>
+      <p>ਆਦਿ ਸਚੁ ਜੁਗਾਦਿ ਸਚੁ ॥<br>
+      ਹੈ ਭੀ ਸਚੁ ਨਾਨਕ ਹੋਸੀ ਭੀ ਸਚੁ ॥</p>
     </div>
 
     <button onclick="tap()">🙏 TAP TO JAP</button>
